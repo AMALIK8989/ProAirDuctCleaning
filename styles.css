@@ -1,0 +1,80 @@
+/* Resetting default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body styles */
+  body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #2980b9, #6dd5fa);
+    color: #fff;
+  }
+  
+  /* Navbar styles */
+  .navbar {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    padding: 15px 0;
+  }
+  
+  .navbar-brand {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .navbar-nav .nav-link {
+    color: #fff;
+    margin-right: 20px;
+  }
+  
+  /* Services section styles */
+  #services {
+    padding: 100px 0;
+  }
+  
+  #services h2 {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .card {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+  }
+  
+  .card-title {
+    color: #2980b9;
+    font-weight: bold;
+  }
+  
+  /* Reviews section styles */
+  #reviews {
+    padding: 100px 0;
+    background-color: #f8f9fa;
+  }
+  
+  #reviews h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .card-text {
+    color: #555;
+  }
+  
+  /* Footer styles */
+  footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+  }
+  
+  footer p {
+    margin: 0;
+  }
+  
