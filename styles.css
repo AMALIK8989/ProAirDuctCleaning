@@ -8,7 +8,7 @@
   /* Body styles */
   body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, #2980b9, #6dd5fa);
+    background: linear-gradient(to bottom, #89b5d3, #75f5cee3);
     color: #fff;
   }
   
@@ -16,6 +16,7 @@
   .navbar {
     background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
     padding: 15px 0;
+    height: 100px;
   }
   
   .navbar-brand {
@@ -32,22 +33,105 @@
   /* Services section styles */
   #services {
     padding: 100px 0;
+    height: 750px;
   }
   
   #services h2 {
     color: #fff;
     text-align: center;
     margin-bottom: 40px;
+    margin-top: 10px;
   }
   
-  .card {
+ /* Card styles */
+.card {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Adding transition for smooth effect */
+  position: relative; /* Added for pseudo-elements positioning */
+  height: 500px; /* Set a fixed height for the cards */
+}
+
+.card:before,
+.card:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:before {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.card:after {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.card:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05); /* Scale the card slightly on hover */
+}
+
+.card:hover:before,
+.card:hover:after {
+  opacity: 1;
+}
+
+/* Button styles */
+.card .btn {
+  background-color: rgba(116, 230, 9, 0.932);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+  position: absolute; /* Position the button */
+  bottom: 15px; /* Adjust the button position */
+  left: 50%; /* Center the button horizontally */
+  transform: translateX(-50%); /* Center the button horizontally */
+  z-index: 1; /* Ensure the button appears above other elements */
+}
+
+.card .btn:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
+}
+ 
+
+  .review-card {
     background-color: rgba(255, 255, 255, 0.8);
     border: none;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    height: 220px;
+    width: 60%; /* Set the width as a percentage of the height */
   }
   
-  .card-title {
+  .card-title{color: #2980b9;
+    font-weight: bold;}
+
+  .review-card-title {
     color: #2980b9;
     font-weight: bold;
+  }
+  
+  .card-text{ color: #000; /* Change to the desired text color */}
+
+  .review-card-text {
+    color: #000; /* Change to the desired text color */
   }
   
   /* Reviews section styles */
@@ -62,9 +146,6 @@
     margin-bottom: 40px;
   }
   
-  .card-text {
-    color: #555;
-  }
   
   /* Footer styles */
   footer {
@@ -72,9 +153,367 @@
     color: #fff;
     text-align: center;
     padding: 20px 0;
+    margin-top: 150px;
+    height: 120px;
   }
   
   footer p {
     margin: 0;
   }
+/* Styles for the hero section */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 500px; /* Set the desired height */
+    background-image: url('./Images/Hero\ Image.png');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
   
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Adjust the overlay color and opacity */
+  }
+ .btn {
+    width: 125px !important;
+    height: 50px !important;
+    background-color: linear-gradient(to bottom, #2980b9, #6dd5fa);
+    margin-right: 20px;
+    font-size: 11.5px;
+    word-wrap: normal;
+    margin-bottom: 8px;
+
+  }
+  
+  .hero .container {
+    z-index: 1;
+  }
+  
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    padding: 50px;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    padding: 50px;
+
+  }
+  
+  .hero a.btn {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff; /* Set the button background color */
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .hero a.btn:hover {
+    background-color: #0056b3; /* Change button background color on hover */
+  }
+  .review-container {
+    background-color: #f9f9f9; /* Background color for the review container */
+    padding: 20px; /* Padding around the content */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+  }
+  .banner-section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px; /* Set the desired height for the banner section */
+    overflow: hidden;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .banner-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    /* Additional styles like background or image specific styles */
+  }
+  
+  .banner-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the entire container */
+  }
+
+  .contact-section {
+    padding: 50px 0;
+    background-color: rgb(216, 112, 126);
+    text-align: center;
+    margin-top: 180px;
+    margin-bottom: 20px;
+  }
+  
+  .contact-section h2 {
+    margin-bottom: 20px;
+  }
+  
+  
+  .contact-section h2 {
+    margin-bottom: 20px;
+  }
+  
+  .contact-info {
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .contact-info h3 {
+    margin-bottom: 10px;
+  }
+
+  
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+  height: 700;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.btn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+  
+/* Style for the form container */
+.form-container {
+  max-width: 400px;
+  max-height: 490px;
+  margin: 10px auto;
+  background-color: #f5f5f5; /* Example background color */
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  background-image: url(./Images/Appointment.png);
+  background-repeat: no-repeat;
+  background-size: 100%,400%;
+}
+
+/* Style for the form heading */
+.form-container h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #000;
+}
+
+/* Style for form labels */
+.form-container label {
+  display: inline-block;
+  width: 120px; /* Adjust width as needed */
+  margin-bottom: 10px;
+  text-align: left;
+  color: #000;
+}
+
+/* Style for form inputs */
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="date"],
+.form-container input[type="submit"] {
+  width: calc(100% - 140px); /* Adjust width as needed */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  box-sizing: border-box; /* Include padding in input's total width */
+}
+
+/* Style for submit button */
+.form-container input[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Style for submit button on hover */
+.form-container input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Style for nav buttons */
+.nav-button {
+  margin: 5px;
+}
+
+/* Button IDs styling */
+#estimate {
+  background-image: linear-gradient(to right, #2ecc71, #064d7c, #9b59b6);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+  width: 135px !important;
+  height: 43px !important;
+  font-size: 12px;
+
+}
+
+
+#BookNow {
+  background-image: linear-gradient(to right, #3498db, #064d7c, #2ecc71);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+  width: 135px !important;
+  height: 43px !important;
+}
+
+
+/* Styling for About Us section */
+#about-us {
+  padding: 50px 0;
+  background-color: #f8f8f8;
+  margin: 20px;
+  margin: 10px;
+  height: 500px !important;
+}
+
+#about-us .container {
+  text-align: center;
+  color: #000;
+}
+
+#about-us h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+#about-us p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Styling for Our Mission section */
+.Our-Mission {
+  padding: 50px 0;
+  background-color: #eaeaea;
+  color: #000;
+  margin: 10px;
+  height: 400px !important;
+}
+
+.Our-Mission h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #000 !important;
+  text-align: center;
+}
+
+.Our-Mission p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  color: #333;
+  text-align: center;
+}
+
+.rate {
+  float: left;
+  height: 46px;
+  padding: 0 10px;
+}
+.rate:not(:checked) > input {
+  position:absolute;
+  top:-9999px;
+}
+.rate:not(:checked) > label {
+  float:right;
+  width:1em;
+  overflow:hidden;
+  white-space:nowrap;
+  cursor:pointer;
+  font-size:30px;
+  color:#ccc;
+}
+.rate:not(:checked) > label:before {
+  content: '★ ';
+}
+.rate > input:checked ~ label {
+  color: #ffc700;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+  color: #deb217;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+  color: #c59b08;
+}
+#marquee {
+  background-color: #f5f5f5;
+  padding: 10px;
+  border: 1px solid #ccc;
+  overflow: hidden;
+}
+
+#marquee marquee {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #333;
+  padding: 5px;
+}

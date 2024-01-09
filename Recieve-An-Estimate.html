@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Request an Estimate</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+ <link rel="stylesheet" href="styles.css">
+ <style>
+  /* Custom CSS for the form */
+.container {
+   width: 100%;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+h1 {
+    text-align: center;
+    color: #000;
+}
+
+p {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+.form-group {
+    margin-bottom: 10px;
+    color: #000;
+}
+
+label {
+    font-weight: bold;
+    padding: 5px 0; /* Adjust as needed */
+    line-height: 1.2; /* Adjust as needed */
+    color: #000;
+
+}
+
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #000;
+
+}
+
+.form-check {
+    margin-bottom: 15px;
+}
+
+.btn-primary {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+/* CSS for the select element */
+#services {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 40px;
+}
+
+#services:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* CSS for select options */
+#services option {
+    padding: 5px; /* Adjust option padding as needed */
+}
+
+ </style>
+</head>
+<body>
+    <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="navbar-brand">
+      <img src="./Images/Logo .png" alt="" width="300px" height="250px">
+    </div>
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+         <li class="nav-item">
+          <a class="nav-link active" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#services">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#reviews">Reviews</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">Contact Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About Us</a>
+        </li>
+        <!-- Add more navbar links if needed -->
+      </ul>
+    </div>
+    <script></script>
+  </nav>
+  
+    <!-- Form to Request an Estimate -->
+    <div class="container mt-4">
+        <h1 class="mb-4">Request an Estimate</h1>
+        <p>Fill out the form below to request an estimate for your duct cleaning needs.</p>
+        <form action="./Estimate-form.php" method="$_POST">
+            <div class="form-group">
+                <label for="name">Name*</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group" id="select">
+                <label for="services">Services Needed*</label>
+                <select class="form-control" id="services" name="services" required>
+                    <option value="" selected disabled>-- Select --</option>
+                    <option value="Duct Cleaning"> Air Duct Cleaning</option>
+                    <option value="Aeroseal">Dryer Vent Cleaning</option>
+                    <option value="Commercial Exhaust Fan Cleaning">Commercial Exhaust Fan Cleaning Service</option>   
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="email">Email*</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="building">Type of Building*</label>
+                <select class="form-control" id="building" name="building" required>
+                    <option value="" selected disabled>-- Select --</option>
+                    <option value="Residential">Residential</option>
+                    <option value="Commercial">Commercial</option>
+          <!-- Add more options if needed -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number*</label>
+                <input type="tel" class="form-control" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="hvac">Number of HVAC Systems*</label>
+                <select class="form-control" id="hvac" name="hvac" required>
+                    <option value="" selected disabled>-- Select --</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3+">3 or More</option>
+                    <!-- Add more options if needed -->
+                </select>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="special-offers" name="special-offers">
+                <label class="form-check-label" for="special-offers">Yes! Sign me up for special offers!</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="anti-microbial" name="anti-microbial">
+                <label class="form-check-label" for="anti-microbial">I'm interested in learning more about the anti-microbial application with an air duct cleaning!</label>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Request Estimate</button>
+        </form>
+        <script src="./Form-validation.js"></script>
+        <script>
+            // Get reference to the form
+const form = document.querySelector('form');
+
+// Function to handle form submission
+const submitForm = (e) => {
+    e.preventDefault(); // Prevent default form submission
+
+    // Get form data
+    const formData = new FormData(form);
+
+    // Make a POST request using Fetch API
+    fetch('process.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json()) // Parse response as JSON
+    .then(data => {
+        // Handle the JSON response
+        if (data.success) {
+            // Display success message or perform further actions
+            showMessage('success', 'Data inserted successfully!');
+        } else {
+            // Display error message
+            showMessage('error', 'Error inserting data. Please try again.');
+        }
+    })
+    .catch(error => {
+        // Handle network errors or exceptions
+        showMessage('error', 'There was a problem with the request. Please try again.');
+    });
+};
+
+// Function to display messages to the user
+const showMessage = (type, message) => {
+    // Create a message element
+    const messageElem = document.createElement('div');
+    messageElem.classList.add('message', type);
+    messageElem.textContent = message;
+
+    // Append the message to the form
+    form.appendChild(messageElem);
+
+    // Remove the message after 5 seconds
+    setTimeout(() => {
+        form.removeChild(messageElem);
+    }, 5000);
+};
+
+// Add event listener for form submission
+form.addEventListener('submit', submitForm);
+
+        </script>
+    </div>
+
+    <!-- Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

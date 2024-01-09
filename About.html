@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Pro Air Duct Cleaning Services</title> 
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="./Images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" href="./Images/favicon.ico" type="image/x-icon">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  
+  
+  
+    <!-- Link Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Add SEO-related meta tags here -->
+    <meta name="description" content="Pro Air Duct Cleaning Services is a reputable company based in Corona, CA, committed to providing top-notch air duct cleaning services. Founded in 2023, we prioritize cleanliness, efficiency, and customer satisfaction.">
+    <meta name="keywords" content="Pro Air Duct Cleaning, Corona CA, air duct cleaning, efficient cleaning services">
+    <!-- Add more meta tags for SEO optimization -->
+</head>
+<section>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="navbar-brand">
+      <img src="./Images/Logo .png" alt="" width="300px" height="250px">
+    </div>
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+         <li class="nav-item">
+          <a class="nav-link active" href="./Index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#services">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#reviews">Reviews</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="./About.html">About Us</a>
+        </li>
+        <!-- Add more navbar links if needed -->
+      </ul>
+    </div>
+    <div class="nav-button">
+      <button id="estimate">Recieve An Estimate</button>
+    </div>
+    <script>
+       function redirectToEstimate() {
+        window.location.href = "./Recieve-An-Estimate.html"; // Redirect to the estimate page
+      }
+      document.getElementById("estimate").addEventListener("click", redirectToEstimate);
+    </script>
+    <div class="nav-button">
+      <button id="BookNow">+19098106410</button>
+    </div>
+    <script>
+      document.getElementById('BookNow').addEventListener('click', async function() {
+    const url = 'https://whatsapp-messaging-hub.p.rapidapi.com/WhatsappNumberHasIt';
+    const options = {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        'X-RapidAPI-Key': 'b50ec587a1msh55c9bbe626f78c2p16637djsn228e43ac3fef',
+        'X-RapidAPI-Host': 'whatsapp-messaging-hub.p.rapidapi.com'
+      },
+      body: JSON.stringify({
+        number: '+19098106410' // Change this number to the desired WhatsApp number
+      })
+    };
+  
+    try {
+      const response = await fetch(url, options);
+      const result = await response.text();
+      console.log(result);
+    } catch (error) {
+      console.error(error);
+    }
+  });
+  
+    </script>
+    <script>
+    // Anime.js animation for hover effect
+    const estimateButton = document.getElementById('estimate');
+    const bookNowButton = document.getElementById('BookNow');
+    
+    // Function to create hover effect animation
+    function createHoverAnimation(button) {
+      const originalGradient = getComputedStyle(button).backgroundImage;
+    
+      button.addEventListener('mouseenter', function() {
+        anime({
+          targets: button,
+          backgroundImage: [
+            originalGradient,
+            'linear-gradient(to right, #2ecc71, #064d7c, #3498db)'
+          ],
+          duration: 500,
+          easing: 'easeInOutQuad'
+        });
+      });
+    
+      button.addEventListener('mouseleave', function() {
+        anime({
+          targets: button,
+          backgroundImage: [
+            'linear-gradient(to right, #2ecc71, #064d7c, #3498db)',
+            originalGradient
+          ],
+          duration: 500,
+          easing: 'easeInOutQuad'
+        });
+      });
+    }
+    
+    // Apply hover effect animation to buttons
+    createHoverAnimation(estimateButton);
+    createHoverAnimation(bookNowButton);
+      </script>
+  </nav>
+  
+  
+  
+    <main>
+        <section id="about-us">
+            <div class="container">
+                <h2>About Us</h2>
+                <p>Pro Air Duct Cleaning Services, established in 2023, proudly serves the residents and businesses of Corona, CA, and surrounding areas. With a dedicated team of experts, we specialize in providing comprehensive air duct cleaning solutions.</p>
+                <p>We are committed to delivering exceptional service, focusing on improving indoor air quality, reducing allergens, and ensuring the efficiency of your HVAC systems. Our mission is to create a healthier and cleaner environment for our customers.</p>
+            </div>
+            <div class="Our Mission">
+                <h2 style="color: black; text-align: center;">Our Mission</h2>
+                <p style="color: black; text-align: center;">At Pro Air Duct Cleaning Services, our mission is to exceed customer expectations by delivering superior air duct cleaning services. We aim to provide a clean and healthy indoor environment for homes and businesses, ensuring optimal airflow and system efficiency.</p>
+            </div>
+        </section>
+
+<!-- Reviews Section -->
+<section id="reviews" class="py-5 bg-light">
+    <div class=" review-container">
+      <h2 class="text-center mb-5">Customer Reviews</h2>
+      <div class="row slider">
+        <div class="col-lg-4 mb-4">
+          <div class="review-card">
+              <img src="./Images/Emily.jpg" alt="Your Image"class="img-fluid rounded-circle" width="25%" height="25%">
+  
+            <div class="card-body">
+              <h5 class="card-title">Emily Williams</h5>
+              <p class="card-text">"Impressive work! They exceeded our expectations."</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-4">
+          <div class="review-card">
+              <img src="./Images/Michael.jpg" alt="Your Image" class="img-fluid rounded-circle" width="25%" height="25%">
+  
+            <div class="card-body">
+              <h5 class="card-title">Michael Brown</h5>
+              <p class="card-text">"Great attention to detail and very professional service."</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-4">
+          <div class="review-card">
+              <img src="./Images/Sophia Miller.png" alt="Your Image" class="img-fluid rounded-circle" width="25%" height="25%">
+  
+            <div class="card-body">
+              <h5 class="card-title">Sophia Miller</h5>
+              <p class="card-text">"Highly knowledgeable team! I'm extremely satisfied."</p>
+            </div>
+          </div>
+        </div>
+        <!-- Additional three reviews -->
+        <div class="col-lg-4 mb-4">
+          <div class="review-card">
+              <img src="./Images/Oliver .png" alt="Your Image" class="img-fluid rounded-circle" width="25%" height="25%">
+  
+            <div class="card-body">
+              <h5 class="card-title">Oliver Clark</h5>
+              <p class="card-text">"Fantastic service and remarkable professionalism."</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-4">
+          <div class="review-card">
+              <img src="./Images/Isabella Garcia .png" alt="Your Image" class="img-fluid rounded-circle" width="25%" height="25%">
+  
+            <div class="card-body">
+              <h5 class="card-title">Isabella Garcia</h5>
+              <p class="card-text">"They did an excellent job! I highly recommend them."</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-4">
+          <div class="review-card">
+              <img src="./Images/ethan .png" alt="Your Image" class="img-fluid rounded-circle" width="25%" height="25%">
+  
+            <div class="card-body">
+              <h5 class="card-title">Ethan Thompson</h5>
+              <p class="card-text">"Professional and courteous service. Very satisfied!"</p>
+            </div>
+          </div>
+        </div>
+       <script>
+        // Function to fetch reviews from the backend API
+  function fetchReviews() {
+      fetch('reviews-api.php')
+          .then(response => response.json())
+          .then(reviews => {
+              // Update HTML to display reviews dynamically
+              const reviewsContainer = document.getElementById('reviews'); // Update with your container ID
+              reviewsContainer.innerHTML = ''; // Clear previous reviews
+  
+              reviews.forEach(review => {
+                  const { name, message, rating, image } = review;
+  
+                  const reviewCard = document.createElement('div');
+                  reviewCard.classList.add('review-card');
+  
+                  const cardBody = document.createElement('div');
+                  cardBody.classList.add('card-body');
+  
+                  const reviewerName = document.createElement('h5');
+                  reviewerName.textContent = name;
+  
+                  const reviewMessage = document.createElement('p');
+                  reviewMessage.textContent = message;
+  
+                  const starRating = document.createElement('p');
+                  starRating.textContent = `Rating: ${rating} Stars`;
+  
+                  cardBody.appendChild(reviewerName);
+                  cardBody.appendChild(reviewMessage);
+                  cardBody.appendChild(starRating);
+  
+                  reviewCard.appendChild(cardBody);
+                  reviewsContainer.appendChild(reviewCard);
+              });
+          })
+          .catch(error => console.error('Error fetching reviews:', error));
+  }
+  
+  // Call the function to fetch and display reviews when the page loads
+  window.onload = fetchReviews;
+  
+       </script>
+      </div>
+    </div>
+  </section>
+        <!-- Add more sections to highlight services, testimonials, etc. -->
+    </main>
+    <section id="marquee">
+      <marquee behavior="scroll" direction="left">
+        <strong>Attention:</strong> Please refrain from using the estimate form and contact form as our database is currently down. We are working on fixing it and expect it to be operational soon. In the meantime, kindly use the contact information provided below the contact form to reach us for estimates.
+    </marquee>
+    </section>
+<section>
+    <footer>
+        <!-- Add your footer content here -->
+        <p>&copy; 2023 Pro Air Duct Cleaning. All rights reserved By <a href="https://codecanvas-v2.netlify.app/">CodeCanvas</a>.</p>    </footer></section>
+</body>
+</html>
