@@ -4,38 +4,92 @@
     padding: 0;
     box-sizing: border-box;
   }
-  
+
   /* Body styles */
   body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, #89b5d3, #75f5cee3);
     color: #fff;
+    background: linear-gradient(to right, rgb(157, 222, 248), palevioletred);
   }
-  
-  /* Navbar styles */
-  .navbar {
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
-    padding: 15px 0;
-    height: 100px;
+  #appointment{
+    background: linear-gradient(to right, rgb(157, 222, 248), palevioletred);
+    width: 130px;
+    height: 40px;
+    color: whitesmoke;
+    font-size: 14px;
+    border-radius: 4px;
   }
-  
-  .navbar-brand {
-    color: #fff;
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  
-  .navbar-nav .nav-link {
-    color: #fff;
-    margin-right: 20px;
-  }
+
+/* Navbar styling */
+.navbar {
+  padding: 1rem;
+}
+
+.navbar-brand img {
+  width: 250px;
+  height: 180px;
+}
+
+.navbar-toggler {
+  background-color: #ffffff; /* Toggle button background color */
+}
+
+.navbar-toggler-icon {
+  background-color: #000000; /* Toggle icon color */
+}
+
+/* Navbar links styling */
+.navbar-nav {
+  text-align: center;
+}
+
+.navbar-nav .nav-item {
+  margin-bottom: 10px;
+}
+
+.navbar-nav .nav-link {
+  color: #ffffff; /* Link text color */
+  font-weight: bold;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #cccccc; /* Link text color on hover */
+}
+
+/* Active link styling */
+.navbar-nav .nav-item.active .nav-link {
+  color: #00ff00; /* Active link text color */
+}
+
+/* Collapsed navbar styling */
+.collapse.navbar-collapse {
+  background-color: #343a40; /* Collapsed navbar background color */
+}
+
+.collapse.navbar-collapse .navbar-nav {
+  margin-top: 1rem;
+}
+
+.collapse.navbar-collapse .navbar-nav .nav-link {
+  color: #ffffff; /* Collapsed navbar link text color */
+  font-weight: bold;
+}
+
+.collapse.navbar-collapse .navbar-nav .nav-link:hover {
+  color: #cccccc; /* Collapsed navbar link text color on hover */
+}
+
   
   /* Services section styles */
   #services {
-    padding: 100px 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: 100%;
     height: 750px;
   }
   
+ 
   #services h2 {
     color: #fff;
     text-align: center;
@@ -44,10 +98,11 @@
   }
   
  /* Card styles */
-.card {
+#services .card {
   background-color: rgba(255, 255, 255, 0.8);
-  border: none;
-  padding: 10px;
+  margin: 0;
+  padding: 0;
+  border: 5px solid black;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
@@ -108,6 +163,43 @@
   transform: scale(1.05);
 }
  
+.services-grid {
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.grid-item {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+}
+
+.grid-item h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.grid-item p {
+  font-size: 0.85em;
+  line-height: 1.5;
+  color: #000;
+}
+
+.grid-item i {
+  font-size: 4em;
+  margin-bottom: 10px;
+  color: #428bca;
+}
+
 
   .review-card {
     background-color: rgba(255, 255, 255, 0.8);
@@ -263,7 +355,7 @@
 
   .contact-section {
     padding: 50px 0;
-    background-color: rgb(216, 112, 126);
+    background-color: rgb(253, 253, 253);
     text-align: center;
     margin-top: 180px;
     margin-bottom: 20px;
@@ -271,6 +363,7 @@
   
   .contact-section h2 {
     margin-bottom: 20px;
+    color: #000;
   }
   
   
@@ -281,11 +374,13 @@
   .contact-info {
     text-align: left;
     max-width: 600px;
+    color: #000;
     margin: 0 auto;
   }
   
   .contact-info h3 {
     margin-bottom: 10px;
+    color: #000;
   }
 
   
@@ -485,7 +580,7 @@ textarea {
   white-space:nowrap;
   cursor:pointer;
   font-size:30px;
-  color:#ccc;
+  color:#000000;
 }
 .rate:not(:checked) > label:before {
   content: '★ ';
@@ -516,4 +611,231 @@ textarea {
   font-size: 16px;
   color: #333;
   padding: 5px;
+}
+/* Style for the image section */
+#image-section {
+  padding: 50px;
+  background-color: #f5f5f5;
+  height: 900px;
+}
+
+/* Style for the image container */
+.image-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Style for individual images */
+.image-container  {
+  width: 100%;
+  height: 830px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-container img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+/* Video gallery styles */
+.video-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+  margin: 20px;
+}
+
+/* Individual video container styles */
+.video-container {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 56.25%; /* Aspect ratio for 16:9 videos */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive styling for iframes */
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+/* Media screen query for max width 375px */
+@media screen and (max-width: 375px) {
+  body {
+    font-size: 14px;
+  }
+
+  /* Navbar adjustments */
+  .navbar-brand img {
+    width: 120px; /* Adjust the width as needed */
+    height: auto;
+  }
+
+  .navbar-toggler {
+    margin: 5px;
+  }
+
+  .navbar-toggler-icon {
+    background-color: #007bff;
+  }
+
+  .navbar-collapse {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #343a40; /* Add background color as needed */
+    z-index: 1;
+  }
+
+  .navbar-nav {
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar-nav .nav-item {
+    width: 100%;
+    display: block;
+    margin-bottom: 5px; /* Add margin as needed */
+  }
+
+  .navbar-toggler {
+    margin-right: 15px;
+  }
+
+  /* Hero section adjustments */
+  .hero {
+    margin-top: 56px; /* Adjust the margin-top to create space for the navbar */
+    padding-top: 24px; /* Adjust the padding-top to create space for the navbar */
+  }
+
+  .hero-overlay {
+    position: relative;
+    z-index: 0;
+  }
+
+  #services {
+    grid-template-columns: repeat(3, 1fr);
+    height: auto;
+  }
+
+  #services .card {
+    width: calc(100% - 20px); /* Adjust width to account for gap */
+    margin: 0; /* Remove margin */
+    padding: 0; /* Remove padding */
+  }
+
+  /* Reviews Section adjustments for smaller screens */
+  .review-container h2 {
+    font-size: 1.5em;
+  }
+
+  .review-card {
+    margin-bottom: 10px;
+  }
+
+  /* Contact Section adjustments for smaller screens */
+  .contact-section h2 {
+    font-size: 1.5em;
+  }
+
+  .contact-info p {
+    font-size: 0.8em;
+  }
+
+  /* Submit a Review Section adjustments for smaller screens */
+  #reviewerName,
+  #reviewMessage {
+    font-size: 0.8em;
+  }
+
+  .rate {
+    font-size: 0.8em;
+  }
+  #About {
+    padding: 10px;
+    height: 350px;
+}
+
+#About h2 {
+    font-size: 1.5em;
+}
+
+#About p {
+    font-size: 0.9em;
+}
+  .review-btn button {
+    font-size: 0.8em;
+  }
+
+  /* Footer adjustments for smaller screens */
+  footer {
+    padding: 10px;
+    font-size: 0.8em;
+    text-align: center; /* Center text in the footer for smaller screens */
+  }
+
+  /* Video Section adjustments for smaller screens */
+  .video-gallery {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .video-container {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .video-container iframe {
+    width: 100%;
+    height: 200px; /* Adjust the height as needed */
+  }
+
+  .card {
+    margin-bottom: 0;
+    box-shadow: none;
+  }
+
+  .card-body {
+    padding: 10px;
+  }
+
+  .btn {
+    margin-top: 5px;
+  }
+
+  #marquee {
+    padding: 10px; /* Adjust padding or other styles for smaller screens */
+    background-color: #f0f0f0; /* Example background color for the marquee section */
+    text-align: center; /* Center text for smaller screens */
+  }
+  .container {
+    width: 100%; /* Make the container full width on smaller screens */
+  }
+
+  /* Adjust the form inputs for smaller screens */
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  /* Center the form elements */
+  #appointmentForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Add padding to the button */
+  button {
+    padding: 10px;
+  }
+
 }

@@ -11,11 +11,104 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="icon" href="./Images/favicon.ico" type="image/x-icon">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+  // jQuery code for toggler in the specified media screen range
+  $(document).ready(function () {
+    var screenWidth = $(window).width();
 
-<!-- Start WOWSlider.com HEAD section -->
-<link rel="stylesheet" type="text/css" href="engine1/style.css" />
-<script type="text/javascript" src="engine1/jquery.js"></script>
-<!-- End WOWSlider.com HEAD section -->
+    if (screenWidth >= 375 && screenWidth <= 912) {
+      // Toggler code for the specified media screen range
+      $('.navbar-toggler').on('click', function () {
+        $('.navbar-collapse').toggleClass('show');
+      });
+
+      // Close navbar when a nav link is clicked
+      $('.nav-link').on('click', function () {
+        $('.navbar-collapse').removeClass('show');
+      });
+    }
+  });
+
+  // Update toggler state on window resize
+  $(window).resize(function () {
+    var screenWidth = $(window).width();
+
+    if (screenWidth >= 375 && screenWidth <= 912) {
+      $('.navbar-toggler').on('click', function () {
+        $('.navbar-collapse').toggleClass('show');
+      });
+
+      $('.nav-link').on('click', function () {
+        $('.navbar-collapse').removeClass('show');
+      });
+    } else {
+      // If outside the specified media screen range, remove any modifications
+      $('.navbar-collapse').removeClass('show');
+    }
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Define animations for each section
+    const animations = [
+      {
+        targets: '.hero',
+        translateY: [-50, 0],
+        opacity: [0, 1],
+        easing: 'easeInOutQuad',
+        duration: 800,
+      },
+      {
+        targets: '#services',
+        translateY: [-50, 0],
+        opacity: [0, 1],
+        easing: 'easeInOutQuad',
+        duration: 800,
+      },
+      {
+        targets: '#reviews',
+        translateY: [-50, 0],
+        opacity: [0, 1],
+        easing: 'easeInOutQuad',
+        duration: 800,
+      },
+      // Add more animations for other sections as needed
+    ];
+
+    // Function to check if an element is in the viewport
+    function isInViewport(element) {
+      const rect = element.getBoundingClientRect();
+      return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+      );
+    }
+
+    // Function to handle scroll and trigger animations
+    function handleScroll() {
+      animations.forEach((animation) => {
+        const section = document.querySelector(animation.targets);
+        if (section && isInViewport(section)) {
+          anime(animation);
+        }
+      });
+    }
+
+    // Attach the scroll event listener
+    window.addEventListener('scroll', handleScroll);
+
+    // Trigger animations on initial load
+    handleScroll();
+  });
+</script>
+
+
+
+
 
   <!-- Link Custom CSS -->
   <link rel="stylesheet" href="styles.css">
@@ -23,15 +116,18 @@
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
   <div class="navbar-brand">
-    <img src="./Images/Logo .png" alt="" width="300px" height="250px">
+    <img src="./Images/Logo .png" alt="" width="250px" height="auto">
   </div>
-  <!-- Navbar links -->
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
-       <li class="nav-item">
-        <a class="nav-link active" href="#">Home</a>
+      <li class="nav-item">
+        <a class="nav-link active" href="./Index.html">Home</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#services">Services</a>
@@ -39,88 +135,22 @@
       <li class="nav-item">
         <a class="nav-link" href="#reviews">Reviews</a>
       </li>
-      
       <li class="nav-item">
-        <a class="nav-link" href="#about">About Us</a>
+        <a class="nav-link" href="./About.html">About Us</a>
       </li>
-      <!-- Add more navbar links if needed -->
     </ul>
   </div>
-  <div class="nav-button">
-    <!-- <button id="estimate">Recieve An Estimate</button>
+  <div class="get-appointment">
+    <button id="appointment">Get An Appointment</button>
   </div>
   <script>
-     function redirectToEstimate() {
-      window.location.href = "./Recieve-An-Estimate.html"; // Redirect to the estimate page
-    }
-    document.getElementById("estimate").addEventListener("click", redirectToEstimate);
-  </script> -->
-  <div class="nav-button">
-    <button id="BookNow">+19098106410</button>
-  </div>
-  <script>
-    document.getElementById('BookNow').addEventListener('click', async function() {
-  const url = 'https://whatsapp-messaging-hub.p.rapidapi.com/WhatsappNumberHasIt';
-  const options = {
-    method: 'POST',
-    headers: {
-      'content-type': 'application/json',
-      'X-RapidAPI-Key': 'b50ec587a1msh55c9bbe626f78c2p16637djsn228e43ac3fef',
-      'X-RapidAPI-Host': 'whatsapp-messaging-hub.p.rapidapi.com'
-    },
-    body: JSON.stringify({
-      number: '+19098106410' // Change this number to the desired WhatsApp number
-    })
-  };
-
-  try {
-    const response = await fetch(url, options);
-    const result = await response.text();
-    console.log(result);
-  } catch (error) {
-    console.error(error);
-  }
+$(document).ready(function () {
+  $("#appointment").click(function () {
+    window.location = 'Set-An-Appointment.html';
+  });
 });
 
   </script>
-  <script>
-  // Anime.js animation for hover effect
-  const estimateButton = document.getElementById('estimate');
-  const bookNowButton = document.getElementById('BookNow');
-  
-  // Function to create hover effect animation
-  function createHoverAnimation(button) {
-    const originalGradient = getComputedStyle(button).backgroundImage;
-  
-    button.addEventListener('mouseenter', function() {
-      anime({
-        targets: button,
-        backgroundImage: [
-          originalGradient,
-          'linear-gradient(to right, #2ecc71, #064d7c, #3498db)'
-        ],
-        duration: 500,
-        easing: 'easeInOutQuad'
-      });
-    });
-  
-    button.addEventListener('mouseleave', function() {
-      anime({
-        targets: button,
-        backgroundImage: [
-          'linear-gradient(to right, #2ecc71, #064d7c, #3498db)',
-          originalGradient
-        ],
-        duration: 500,
-        easing: 'easeInOutQuad'
-      });
-    });
-  }
-  
-  // Apply hover effect animation to buttons
-  createHoverAnimation(estimateButton);
-  createHoverAnimation(bookNowButton);
-    </script>
 </nav>
 
 
@@ -136,12 +166,34 @@
   </div>
 </section>
 
+<section id="promo">
+  <div class="promo">
+    <img src="./Images/Promotion .png" alt="" width="100%" height="900px">
+  </div>
+  <script>
+    $(document).ready(function () {
+      var screenWidth = $(window).width();
+      var promoImage = $('.promo img');
+
+      console.log('Screen width:', screenWidth);  // Log the screen width for debugging
+
+      if (screenWidth >= 280 && screenWidth <= 430) {
+        console.log('Changing image source...');
+        promoImage.attr('src', './Images/PromotionMobUi.png');
+        console.log('New image source:', promoImage.attr('src'));
+      } else {
+        console.log('Screen width not in the specified range.');
+      }
+    });
+  </script>
+</section>
+
 <!-- Services Section -->
-<section id="services" class="py-5">
+<section id="services" class="py-5" style="width: 100%; height: auto; margin-bottom: 50px; ">
   <div class="container">
-    <h2 class="text-center mb-5">Our Services</h2>
+    <h2 class="text-center mb-5" style=" color: black;">Our Services</h2>
     <div class="row">
-      <div class="col-lg-4 col-md-6 mb-4">
+      <div class="col-lg-4 col-md-5 col-sm-3">
         <div class="card">
           <img src="./Images/Residential .png" alt="">
           <div class="card-body">
@@ -152,7 +204,7 @@
         </div>
       </div>
       
-      <div class="col-lg-4 col-md-6 mb-4">
+      <div class="col-lg-4 col-md-5 col-sm-3">
         <div class="card" id="Commercial">
             <img src="./Images/Commercial Duct Cleaning.jpg" alt="">
           <div class="card-body">
@@ -164,7 +216,7 @@
         </div>
       </div>
       
-      <div class="col-lg-4 col-md-6 mb-4">
+      <div class="col-lg-4 col-md-5 col-sm-3">
         <div class="card" id="Aeroseal">
             <img src="./Images/Aeroseal.png" alt="">
           <div class="card-body">
@@ -201,249 +253,216 @@
 </script>
 
 <!-- Reviews Section -->
-<section id="reviews" class="py-5 bg-light">
-  <div class=" review-container">
-    <h2 class="text-center mb-5">Customer Reviews</h2>
-    <div class="row slider">
-      <div class="col-lg-4 mb-4">
-        <div class="review-card">
-            <img src="./Images/Emily.jpg" alt="Your Image"class="img-fluid rounded-circle" width="25%" height="25%">
-
-          <div class="card-body">
-            <h5 class="card-title">Emily Williams</h5>
-            <p class="card-text">"Impressive work! They exceeded our expectations."</p>
+<section id="reviews" class="py-5 bg-light" style="margin-top: 10px; margin-bottom: 10px; ">
+  <div class="container review-container">
+      <h2 class="text-center mb-5">Customer Reviews</h2>
+      <div class="row slider">
+          <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+              <div class="review-card">
+                  <div class="card-body">
+                      <h5 class="card-title">Emily Williams</h5>
+                      <p class="card-text">"Impressive work! They exceeded our expectations."</p>
+                  </div>
+              </div>
           </div>
-        </div>
-      </div>
-      <div class="col-lg-4 mb-4">
-        <div class="review-card">
-            <img src="./Images/Michael.jpg" alt="Your Image" class="img-fluid rounded-circle" width="25%" height="25%">
-
-          <div class="card-body">
-            <h5 class="card-title">Michael Brown</h5>
-            <p class="card-text">"Great attention to detail and very professional service."</p>
+          <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+              <div class="review-card">
+                  <div class="card-body">
+                      <h5 class="card-title">Michael Brown</h5>
+                      <p class="card-text">"Great attention to detail and very professional service."</p>
+                  </div>
+              </div>
           </div>
-        </div>
-      </div>
-      <div class="col-lg-4 mb-4">
-        <div class="review-card">
-            <img src="./Images/Sophia Miller.png" alt="Your Image" class="img-fluid rounded-circle" width="25%" height="25%">
-
-          <div class="card-body">
-            <h5 class="card-title">Sophia Miller</h5>
-            <p class="card-text">"Highly knowledgeable team! I'm extremely satisfied."</p>
+          <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+              <div class="review-card">
+                  <div class="card-body">
+                      <h5 class="card-title">Sophia Miller</h5>
+                      <p class="card-text">"Highly knowledgeable team! I'm extremely satisfied."</p>
+                  </div>
+              </div>
           </div>
-        </div>
-      </div>
-      <!-- Additional three reviews -->
-      <div class="col-lg-4 mb-4">
-        <div class="review-card">
-            <img src="./Images/Oliver .png" alt="Your Image" class="img-fluid rounded-circle" width="25%" height="25%">
-
-          <div class="card-body">
-            <h5 class="card-title">Oliver Clark</h5>
-            <p class="card-text">"Fantastic service and remarkable professionalism."</p>
+          <!-- Additional three reviews -->
+          <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+              <div class="review-card">
+                  <div class="card-body">
+                      <h5 class="card-title">Oliver Clark</h5>
+                      <p class="card-text">"Fantastic service and remarkable professionalism."</p>
+                  </div>
+              </div>
           </div>
-        </div>
-      </div>
-      <div class="col-lg-4 mb-4">
-        <div class="review-card">
-            <img src="./Images/Isabella Garcia .png" alt="Your Image" class="img-fluid rounded-circle" width="25%" height="25%">
-
-          <div class="card-body">
-            <h5 class="card-title">Isabella Garcia</h5>
-            <p class="card-text">"They did an excellent job! I highly recommend them."</p>
+          <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+              <div class="review-card">
+                  <div class="card-body">
+                      <h5 class="card-title">Isabella Garcia</h5>
+                      <p class="card-text">"They did an excellent job! I highly recommend them."</p>
+                  </div>
+              </div>
           </div>
-        </div>
-      </div>
-      <div class="col-lg-4 mb-4">
-        <div class="review-card">
-            <img src="./Images/ethan .png" alt="Your Image" class="img-fluid rounded-circle" width="25%" height="25%">
-
-          <div class="card-body">
-            <h5 class="card-title">Ethan Thompson</h5>
-            <p class="card-text">"Professional and courteous service. Very satisfied!"</p>
+          <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+              <div class="review-card">
+                  <div class="card-body">
+                      <h5 class="card-title">Ethan Thompson</h5>
+                      <p class="card-text">"Professional and courteous service. Very satisfied!"</p>
+                  </div>
+              </div>
           </div>
-        </div>
       </div>
-     <script>
-      // Function to fetch reviews from the backend API
+  </div>
+  <script>
+    // Function to fetch reviews from the backend API
 function fetchReviews() {
-    fetch('reviews-api.php')
-        .then(response => response.json())
-        .then(reviews => {
-            // Update HTML to display reviews dynamically
-            const reviewsContainer = document.getElementById('reviews'); // Update with your container ID
-            reviewsContainer.innerHTML = ''; // Clear previous reviews
+  fetch('reviews-api.php')
+      .then(response => response.json())
+      .then(reviews => {
+          // Update HTML to display reviews dynamically
+          const reviewsContainer = document.getElementById('reviews'); // Update with your container ID
+          reviewsContainer.innerHTML = ''; // Clear previous reviews
 
-            reviews.forEach(review => {
-                const { name, message, rating, image } = review;
+          reviews.forEach(review => {
+              const { name, message, rating, image } = review;
 
-                const reviewCard = document.createElement('div');
-                reviewCard.classList.add('review-card');
+              const reviewCard = document.createElement('div');
+              reviewCard.classList.add('review-card');
 
-                const cardBody = document.createElement('div');
-                cardBody.classList.add('card-body');
+              const cardBody = document.createElement('div');
+              cardBody.classList.add('card-body');
 
-                const reviewerName = document.createElement('h5');
-                reviewerName.textContent = name;
+              const reviewerName = document.createElement('h5');
+              reviewerName.textContent = name;
 
-                const reviewMessage = document.createElement('p');
-                reviewMessage.textContent = message;
+              const reviewMessage = document.createElement('p');
+              reviewMessage.textContent = message;
 
-                const starRating = document.createElement('p');
-                starRating.textContent = `Rating: ${rating} Stars`;
+              cardBody.appendChild(reviewerName);
+              cardBody.appendChild(reviewMessage);
+              cardBody.appendChild(starRating);
 
-                cardBody.appendChild(reviewerName);
-                cardBody.appendChild(reviewMessage);
-                cardBody.appendChild(starRating);
-
-                reviewCard.appendChild(cardBody);
-                reviewsContainer.appendChild(reviewCard);
-            });
-        })
-        .catch(error => console.error('Error fetching reviews:', error));
+              reviewCard.appendChild(cardBody);
+              reviewsContainer.appendChild(reviewCard);
+          });
+      })
+      .catch(error => console.error('Error fetching reviews:', error));
 }
 
 // Call the function to fetch and display reviews when the page loads
 window.onload = fetchReviews;
 
-     </script>
+   </script>
+</section>
+
+<section id="image-section" style="margin-top: 10px; margin-bottom: 10px; ">
+  <div class="image-container">
+      <img src="./Images/WhatsApp Image 2023-12-30 at 1.14.17 AM.jpeg" alt="Image 0" width="250px" height="200px">
+      <img src="Images/WhatsApp Image 2023-12-30 at 1.14.19 AM (1).jpeg" alt="Image 1" width="250px" height="200px">
+      <img src="Images/Dryer Vent.png" alt="Image 2" width="250px" height="200px">
+      <img src="Images/dryer vent header3.png" alt="Image 3" width="250px" height="200px">
+      <img src="Images/Before And After 4.jpeg" alt="Image 4" width="250px" height="200px">
+      <img src="Images/WhatsApp Image 2023-12-30 at 1.14.19 AM.jpeg" alt="Image 5" width="250px" height="200px">
+      <img src="Images/Before And After .jpeg" alt="Image 6" width="250px" height="200px">
+      <img src="Images/Before And After 1.jpeg" alt="Image 7" width="250px" height="200px">
+      <img src="Images/Before And After 2.jpeg" alt="Image 8" width="250px" height="200px">
+      <img src="Images/Before And After 3.jpeg" alt="Image 9" width="250px" height="200px">
+      
+      <!-- Add more images as needed -->
+  </div>
+
+</section>
+<section class="services-grid" >
+  <div class="grid-container">
+    <div class="grid-item">
+      <i class="fas fa-fan fa-4x"></i> <h3>Air Duct Cleaning</h3>
+      <p>Keep your air ducts clean and healthy for optimal airflow.</p>
+    </div>
+    <div class="grid-item">
+      <i class="fas fa-tools fa-4x"></i> <h3>Vent Repair</h3>
+      <p>Fix any damaged or malfunctioning vents for efficient ventilation.</p>
+    </div>
+    <div class="grid-item">
+      <i class="fa-brands fa-soundcloud fa-4x"></i>   <h3>Dryer Vent Cleaning</h3>
+      <p>Prevent fire hazards and improve dryer performance with regular cleaning.</p>
+    </div>
+    <div class="grid-item">
+      <i class="fas fa-building fa-4x"></i> <h3>Commercial Services</h3>
+      <p>Comprehensive HVAC solutions for businesses of all sizes.</p>
     </div>
   </div>
 </section>
-<section id="slider" style="margin-top: 19px; margin-bottom: 5px;">
-  <!-- Start WOWSlider.com BODY section -->
-<div id="wowslider-container1">
-  <div class="ws_images"><ul>
-      <li><img src="data1/images/whatsapp_image_20231230_at_1.14.17_am.jpg" alt="WhatsApp Image 2023-12-30 at 1.14.17 AM" title="WhatsApp Image 2023-12-30 at 1.14.17 AM" id="wows1_0"/></li>
-      <li><img src="data1/images/whatsapp_image_20231230_at_1.14.19_am_1.jpg" alt="WhatsApp Image 2023-12-30 at 1.14.19 AM (1)" title="WhatsApp Image 2023-12-30 at 1.14.19 AM (1)" id="wows1_1"/></li>
-      <li><img src="data1/images/whatsapp_image_20231230_at_1.14.19_am_2.jpg" alt="WhatsApp Image 2023-12-30 at 1.14.19 AM (2)" title="WhatsApp Image 2023-12-30 at 1.14.19 AM (2)" id="wows1_2"/></li>
-      <li><img src="data1/images/whatsapp_image_20231230_at_1.14.19_am_3.jpg" alt="WhatsApp Image 2023-12-30 at 1.14.19 AM (3)" title="WhatsApp Image 2023-12-30 at 1.14.19 AM (3)" id="wows1_3"/></li>
-      <li><img src="data1/images/whatsapp_image_20231230_at_1.14.19_am_4.jpg" alt="WhatsApp Image 2023-12-30 at 1.14.19 AM (4)" title="WhatsApp Image 2023-12-30 at 1.14.19 AM (4)" id="wows1_4"/></li>
-      <li><img src="data1/images/whatsapp_image_20231230_at_1.14.19_am.jpg" alt="WhatsApp Image 2023-12-30 at 1.14.19 AM" title="WhatsApp Image 2023-12-30 at 1.14.19 AM" id="wows1_5"/></li>
-      <li><img src="data1/images/whatsapp_image_20231230_at_1.14.20_am_1.jpg" alt="WhatsApp Image 2023-12-30 at 1.14.20 AM (1)" title="WhatsApp Image 2023-12-30 at 1.14.20 AM (1)" id="wows1_6"/></li>
-      <li><img src="data1/images/whatsapp_image_20231230_at_1.14.20_am_2.jpg" alt="WhatsApp Image 2023-12-30 at 1.14.20 AM (2)" title="WhatsApp Image 2023-12-30 at 1.14.20 AM (2)" id="wows1_7"/></li>
-      <li><img src="data1/images/whatsapp_image_20231230_at_1.14.20_am_3.jpg" alt="WhatsApp Image 2023-12-30 at 1.14.20 AM (3)" title="WhatsApp Image 2023-12-30 at 1.14.20 AM (3)" id="wows1_8"/></li>
-      <li><img src="data1/images/whatsapp_image_20231230_at_1.14.20_am_4.jpg" alt="WhatsApp Image 2023-12-30 at 1.14.20 AM (4)" title="WhatsApp Image 2023-12-30 at 1.14.20 AM (4)" id="wows1_9"/></li>
-      <li><img src="data1/images/whatsapp_image_20231230_at_1.14.20_am.jpg" alt="WhatsApp Image 2023-12-30 at 1.14.20 AM" title="WhatsApp Image 2023-12-30 at 1.14.20 AM" id="wows1_10"/></li>
-      <li><img src="data1/images/whatsapp_image_20231230_at_1.14.30_am_1.jpg" alt="WhatsApp Image 2023-12-30 at 1.14.30 AM (1)" title="WhatsApp Image 2023-12-30 at 1.14.30 AM (1)" id="wows1_11"/></li>
-      <li><img src="data1/images/whatsapp_image_20231230_at_1.14.30_am.jpg" alt="WhatsApp Image 2023-12-30 at 1.14.30 AM" title="WhatsApp Image 2023-12-30 at 1.14.30 AM" id="wows1_12"/></li>
-      <li><a href="http://wowslider.net"><img src="data1/images/whatsapp_image_20231230_at_1.14.44_am.jpg" alt="css image slider" title="WhatsApp Image 2023-12-30 at 1.14.44 AM" id="wows1_13"/></a></li>
-      <li><img src="data1/images/whatsapp_image_20240104_at_12.30.16_am.jpg" alt="WhatsApp Image 2024-01-04 at 12.30.16 AM" title="WhatsApp Image 2024-01-04 at 12.30.16 AM" id="wows1_14"/></li>
-    </ul></div>
-  </div>	
-  <script type="text/javascript" src="engine1/wowslider.js"></script>
-  <script type="text/javascript" src="engine1/script.js"></script>
-  <!-- End WOWSlider.com BODY section -->
-</section>
+
 <section class="contact-section">
   <div class="container">
     <h2>Contact Us</h2>
     <p>Feel free to reach out to us for any inquiries or questions.</p>
-    <form action="#" method="POST" class="contact-form">
-      <div class="form-group">
-        <label for="name">Your Name</label>
-        <input type="text" id="name" name="name" required>
-      </div>
-      <div class="form-group">
-        <label for="email">Your Email</label>
-        <input type="email" id="email" name="email" required>
-        </div
-        >
-        <div class="form-group">
-          <label for="reviewMessage"> Message</label>
-          <textarea class="form-control" id="message" rows="3" placeholder="Message"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Send Message</button>
-        </form>
-        <script>
-          // Function to validate email using regex
-function validateEmail(email) {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
-}
-
-// Function to handle form submission
-function handleSubmit(event) {
-  event.preventDefault();
-
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-
-  if (name.trim() === '') {
-    alert('Please enter your name');
-    return;
-  }
-
-  if (!validateEmail(email)) {
-    alert('Please enter a valid email address');
-    return;
-  }
-
-  // If all validations pass, proceed with form submission
-  // You can use AJAX to submit the form data or perform other actions here
-  console.log('Form submitted successfully!');
-}
-
-// Event listener for form submission
-const form = document.querySelector('.contact-form');
-form.addEventListener('submit', handleSubmit);
-
-        </script>
-      </div>
 
     <div class="contact-info">
       <h3>Contact Information</h3>
       <p>Email: proairduct84@gmail.com</p>
      <p>Tel:3239265832</p> 
       <p>Tel:9098106410</p>
+      <p>Tel:</p>
       <p>Address: Corona CA 92882 , United States</p>
     </div>
   </div>
 </section>
 <section>
-  <div class="container mt-5" style="background-color: rebeccapurple; width:100%;">
-    <h2>Submit a Review</h2>
+  <div class="container mt-5" style="background-color: rgb(250, 250, 250); width:100%;">
+    <h2 style="color: black; margin-bottom: 40px;">Submit a Review</h2>
     <form>
       <div class="form-group">
-        <label for="reviewerName">Your Name</label>
+        <label for="reviewerName" style="color: black;">Your Name</label>
         <input type="text" class="form-control" id="reviewerName" placeholder="Enter your name">
       </div>
       <div class="form-group">
-        <label for="reviewMessage">Review Message</label>
+        <label for="reviewMessage" style="color: black;">Review Message</label>
         <textarea class="form-control" id="reviewMessage" rows="3" placeholder="Write your review"></textarea>
       </div>
-      <div class="form-group">
-        <label for="reviewImage">Upload Image</label>
-        <input type="file" class="form-control-file" id="reviewImage">
-      </div>
-      <div class="form-group">
-        <div class="rate">
-          <input type="radio" id="star5" name="rate" value="5" />
-          <label for="star5" title="text">5 stars</label>
-          <input type="radio" id="star4" name="rate" value="4" />
-          <label for="star4" title="text">4 stars</label>
-          <input type="radio" id="star3" name="rate" value="3" />
-          <label for="star3" title="text">3 stars</label>
-          <input type="radio" id="star2" name="rate" value="2" />
-          <label for="star2" title="text">2 stars</label>
-          <input type="radio" id="star1" name="rate" value="1" />
-          <label for="star1" title="text">1 star</label>
-      </div>
+      <div class="review-btn">
       <button type="submit" class="btn btn-primary">Submit Review</button>
+    </div>
     </form>
   </div>
-  
 </section>
 
-<section class="banner-section">
+<section style="width: 100%; height: 500px; margin-top: 20px; margin-bottom: 10px; background-color: whitesmoke; display: flex;">
+  <div class="why-us" style="display: flex;">
+    <div class="image">
+      <img src="./Images/uv light.png" alt="" width="400px" height="500px">
+    </div>
+    <div class="content" style="display: flex; flex-direction: column; justify-content: center; padding: 20px; color: black; margin-left: 30px;">
+      <h2>UV Light Air Duct Cleaning: Quick Overview
+      </h2>
+      <ul>
+        <li>Assessment: Identify contaminants in your air ducts.</li>
+        <li>Installation: Choose and install UV lights strategically.</li>
+        <li>Power Up: Connect UV lights, adhering to safety standards.</li>
+        <li>UV-C Action: UV-C spectrum disrupts microorganisms' DNA.</li>
+        <li>Continuous Cleaning: UV lights operate continuously for ongoing protection.</li>
+        <li>Maintenance: Regularly clean and replace bulbs for optimal performance.</li>
+        <li>Benefits: Improved indoor air quality for a healthier environment.</li>
+        <li>Professional Support: Consider our expert HVAC technicians for comprehensive UV cleaning.</li>
+      </ul>
+      <p>Contact us for a healthier indoor space!</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="banner-section" style="width: 100%; height: 900px;">
     <div class="banner-image">
       <img src="./Images/pro.png" alt="Banner Image">
     </div>
   </section>
   
-
+<section class="video-gallery">
+  <div class="video-container">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/S-bIw7z7R3c?si=PqfS2ECWTILffwK0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
+  <div class="video-container">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/cYGIDzGg72E?si=n-hAGxKj_kYJUtQK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
+  <div class="video-container">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/ljN0PYhUzDA?si=o47rRqovE2LGvm5G" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
+</section>
 
 <!-- About Us Section -->
 <section id="about" class="py-5">
@@ -457,11 +476,6 @@ form.addEventListener('submit', handleSubmit);
 
 
 <section>
-  <section id="marquee">
-    <marquee behavior="scroll" direction="left">
-      <strong>Attention:</strong> Please refrain from using the estimate form and contact form as our database is currently down. We are working on fixing it and expect it to be operational soon. In the meantime, kindly use the contact information provided below the contact form to reach us for estimates.
-  </marquee>
-  </section>
 <footer>
   <div class="container">
     <p>&copy; 2023 Pro Air Duct Cleaning. All rights reserved By <a href="https://codecanvas-v2.netlify.app/">CodeCanvas</a>.</p>

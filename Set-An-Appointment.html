@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Set an Appointment</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="./Images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" href="./Images/favicon.ico" type="image/x-icon">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    // jQuery code for toggler in the specified media screen range
+    $(document).ready(function () {
+      var screenWidth = $(window).width();
+  
+      if (screenWidth >= 375 && screenWidth <= 912) {
+        // Toggler code for the specified media screen range
+        $('.navbar-toggler').on('click', function () {
+          $('.navbar-collapse').toggleClass('show');
+        });
+  
+        // Close navbar when a nav link is clicked
+        $('.nav-link').on('click', function () {
+          $('.navbar-collapse').removeClass('show');
+        });
+      }
+    });
+  
+    // Update toggler state on window resize
+    $(window).resize(function () {
+      var screenWidth = $(window).width();
+  
+      if (screenWidth >= 375 && screenWidth <= 912) {
+        $('.navbar-toggler').on('click', function () {
+          $('.navbar-collapse').toggleClass('show');
+        });
+  
+        $('.nav-link').on('click', function () {
+          $('.navbar-collapse').removeClass('show');
+        });
+      } else {
+        // If outside the specified media screen range, remove any modifications
+        $('.navbar-collapse').removeClass('show');
+      }
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Define animations for each section
+      const animations = [
+        {
+          targets: '.hero',
+          translateY: [-50, 0],
+          opacity: [0, 1],
+          easing: 'easeInOutQuad',
+          duration: 800,
+        },
+        {
+          targets: '#services',
+          translateY: [-50, 0],
+          opacity: [0, 1],
+          easing: 'easeInOutQuad',
+          duration: 800,
+        },
+        {
+          targets: '#reviews',
+          translateY: [-50, 0],
+          opacity: [0, 1],
+          easing: 'easeInOutQuad',
+          duration: 800,
+        },
+        // Add more animations for other sections as needed
+      ];
+  
+      // Function to check if an element is in the viewport
+      function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return (
+          rect.top >= 0 &&
+          rect.left >= 0 &&
+          rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+          rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+      }
+  
+      // Function to handle scroll and trigger animations
+      function handleScroll() {
+        animations.forEach((animation) => {
+          const section = document.querySelector(animation.targets);
+          if (section && isInViewport(section)) {
+            anime(animation);
+          }
+        });
+      }
+  
+      // Attach the scroll event listener
+      window.addEventListener('scroll', handleScroll);
+  
+      // Trigger animations on initial load
+      handleScroll();
+    });
+  </script>
+</head>
+
+<body>
+    <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <div class="navbar-brand">
+      <img src="./Images/Logo .png" alt="" width="250px" height="auto">
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#services">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#reviews">Reviews</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About Us</a>
+        </li>
+        <!-- Add more navbar links if needed -->
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container mt-5" style="width: 300px; height: 400px;">
+    <h2 class="text-center mb-4">Set an Appointment</h2>
+
+    <form id="appointmentForm" action="your-submit-url.php" method="post">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="address">Address:</label>
+        <input type="text" class="form-control" id="address" name="address" placeholder="Enter your address" required>
+      </div>
+
+      <div class="form-group" id="select">
+        <label for="services">Services Needed*</label>
+        <select class="form-control" id="services" name="services" required>
+            <option value="" selected disabled>-- Select --</option>
+            <option value="Duct Cleaning"> Air Ducts & Dryer Vents Combo</option>
+            <option value="Dryer Vents">Dryer Vent Cleaning</option>
+            <option value="Large House">Large House(2 Ac Units) & Unlimited Air & Dryer vents</option>
+            <option value="Air Vents">Air Vents</option>
+        </select>
+    </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number:</label>
+        <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter your phone number" required>
+      </div>
+
+      <div class="form-group">
+        <label for="date">Date:</label>
+        <input type="date" class="form-control" id="date" name="date" required>
+      </div>
+
+      <div class="form-group">
+        <label for="time">Time:</label>
+        <input type="time" class="form-control" id="time" name="time" required>
+      </div>
+
+      <div class="form-group">
+        <label for="day">Day:</label>
+        <select class="form-control" id="day" name="day" required>
+          <option value="Monday">Monday</option>
+          <option value="Tuesday">Tuesday</option>
+          <option value="Wednesday">Wednesday</option>
+          <option value="Thursday">Thursday</option>
+          <option value="Friday">Friday</option>
+          <option value="Saturday">Saturday</option>
+          <option value="Sunday">Sunday</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit Appointment</button>
+    </form>
+    <script>
+        $(document).ready(function () {
+          $('#submitBtn').click(function () {
+            // Regex for validating email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      
+            // Regex for validating phone number (10 digits)
+            const phoneRegex = /^\d{10}$/;
+      
+            // Get input values
+            const name = $('#name').val().trim();
+            const address = $('#address').val().trim();
+            const email = $('#email').val().trim();
+            const phone = $('#phone').val().trim();
+            const date = $('#date').val();
+            const time = $('#time').val();
+            const day = $('#day').val();
+      
+            // Validate each input
+            if (name === '' || email === '' || phone === '' || date === '' || time === '' || day === '') {
+              alert('Please fill in all required fields.');
+            } else if (!emailRegex.test(email)) {
+              alert('Please enter a valid email address.');
+            } else if (!phoneRegex.test(phone)) {
+              alert('Please enter a valid phone number (10 digits).');
+            } else if (!address.toLowerCase().includes('corona') || !address.toLowerCase().includes('california')) {
+              alert('Address must be in Corona, California.');
+            } else {
+              // If all validations pass, you can submit the form or perform further actions
+              alert('Form submitted successfully!');
+              // Uncomment the line below to submit the form
+              // $('#appointmentForm').submit();
+            }
+          });
+        });
+      </script>
+      
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
